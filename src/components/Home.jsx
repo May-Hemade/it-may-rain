@@ -1,5 +1,5 @@
 import React, { useEffect } from "react"
-import { Alert, Col, Container, Row, Spinner } from "react-bootstrap"
+import { Alert, Card, Col, Container, Row, Spinner } from "react-bootstrap"
 import { useDispatch, useSelector } from "react-redux"
 import { getForecastAction } from "../redux/actions"
 import TodayForecast from "./TodayForecast"
@@ -29,7 +29,14 @@ function Home() {
           )}
 
           {homeState.forecast.length > 0 && (
-            <TodayForecast forecast={homeState.forecast[0]}></TodayForecast>
+            <div>
+              <TodayForecast forecast={homeState.forecast[0]}></TodayForecast>
+
+              <Card className="m-4 p-2 text-center">
+                <div className="display-4">Advertise with us today!</div>
+                <div className="display-4"> Call us on 0800 ITMAYRAIN</div>
+              </Card>
+            </div>
           )}
         </Col>
       </Row>

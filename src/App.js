@@ -4,7 +4,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import Headbar from "./components/HeaderBar"
 import Home from "./components/Home"
-import WeeklyForecast from "./components/WeeklyForecast"
+import DailyForecast from "./components/DailyForecast"
 
 function App() {
   return (
@@ -13,7 +13,7 @@ function App() {
 
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/weekly" element={<WeeklyForecast />} />
+        <Route path="/daily" element={<DailyForecast />} />
       </Routes>
     </BrowserRouter>
   )

@@ -7,7 +7,7 @@ export const getForecastAction = (latitude, longitude) => {
     setTimeout(async () => {
       try {
         let response = await fetch(
-          `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&appid=${process.env.REACT_APP_WEATHER_APIKEY}`
+          `https://api.openweathermap.org/data/2.5/forecast?lat=${latitude}&lon=${longitude}&units=metric&appid=${process.env.REACT_APP_WEATHER_APIKEY}`
         )
         if (response.ok) {
           let result = await response.json()
