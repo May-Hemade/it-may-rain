@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux"
 import { getForecastAction } from "../redux/actions"
 import SingleForecast from "./SingleForecast"
 
-function WeeklyForecast() {
+function DailyForecast() {
   const homeState = useSelector((state) => state.home)
   const dispatch = useDispatch()
 
@@ -38,4 +38,4 @@ function WeeklyForecast() {
   )
 }
 
-export default WeeklyForecast
+export default DailyForecast

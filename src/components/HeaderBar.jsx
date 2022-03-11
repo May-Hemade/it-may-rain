@@ -1,43 +1,36 @@
 import React from "react"
 import { Button, Form, FormControl, Nav, Navbar } from "react-bootstrap"
-import { useForm } from "react-hook-form"
+import { useSelector } from "react-redux"
 import { Link } from "react-router-dom"
-
-import { useNavigate } from "react-router-dom"
+import "./TodayForecast.css"
 
 export default function Headbar() {
-  const { register, handleSubmit } = useForm()
-  const navigate = useNavigate()
+  const homeState = useSelector((state) => state.home)
 
-  const onSubmit = (data) => {
-    // navigate(`/search/${data.search}`)
-  }
   return (
     <div>
-      <Navbar bg="light" expand="lg">
-        <Navbar.Brand href="/">It MayRain</Navbar.Brand>
+      <Navbar expand="lg" className="navbar">
+        <Navbar.Brand href="/">
+          <span>It MayRain</span>
+          {homeState.forecast.length > 0 && (
+            <img
+              src={`http://openweathermap.org/img/wn/${homeState.forecast[0].weather[0].icon}.png`}
+              width="30"
+              height="30"
+              className="d-inline-block align-top ml-2"
+            />
+          )}
+        </Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
             <Link to="/">
-              <div className="nav-link">Today</div>
+              <div className="nav-link color-dark">Today</div>
             </Link>
-            <Link to="/weekly">
-              <div className="nav-link">Weekly</div>
+            <Link to="/daily">
+              <div className="nav-link">Daily</div>
             </Link>
           </Nav>
-          <Form onSubmit={handleSubmit(onSubmit)} inline>
-            <FormControl
-              type="text"
-              input
-              {...register("search", { required: true })}
-              placeholder="Search"
-              className="mr-sm-2"
-            />
-            <Button type="submit" variant="outline-success">
-              Search
-            </Button>
-          </Form>
         </Navbar.Collapse>
       </Navbar>
     </div>
