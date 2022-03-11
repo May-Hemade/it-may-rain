@@ -11,7 +11,11 @@ const aComposeFunctionThatAlwaysWorks =
   window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose
 
 export const initialState = {
-  home: {},
+  home: {
+    isLoading: true,
+    isError: false,
+    forecast: [],
+  },
 }
 
 const persistConfig = {

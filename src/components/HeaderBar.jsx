@@ -8,8 +8,9 @@ import { useNavigate } from "react-router-dom"
 export default function Headbar() {
   const { register, handleSubmit } = useForm()
   const navigate = useNavigate()
+
   const onSubmit = (data) => {
-    navigate(`/search/${data.search}`)
+    // navigate(`/search/${data.search}`)
   }
   return (
     <div>
@@ -18,11 +19,11 @@ export default function Headbar() {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="mr-auto">
-            <Link to="/favorites">
+            <Link to="/">
               <div className="nav-link">Today</div>
             </Link>
-            <Link to="/favorites">
-              <div className="nav-link">Daily</div>
+            <Link to="/weekly">
+              <div className="nav-link">Weekly</div>
             </Link>
           </Nav>
           <Form onSubmit={handleSubmit(onSubmit)} inline>
